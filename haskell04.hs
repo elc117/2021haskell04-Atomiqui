@@ -24,6 +24,9 @@ strColor :: (Int,Int,Int) -> String
 strColor rgb = (\x -> "rgb" ++ show x) rgb
 
 --5
-genCircs :: Int -> (Int,Int) -> Int -> [(Int,Int,Int)]
-genCircs n p r = 
---(cx, cy)
+genCircs :: Int -> (Int, Int) -> Int -> [(Int,Int,Int)]
+genCircs n (x, y) r = [(x, y, r) | x <- [x, x+2*r.. x+2*(r*n) - 2*r]]
+
+genReds :: Int -> [(Int,Int,Int)]
+genReds n = [(r, g, b) | r <- [13, 13+10..13+n*9], g <- [0..0], b <- [0..0]]
+--genReds n = [(r+10, g+2, b+3) | r <- [13..12+n], g <- [0..0], b <- [0..0]]
